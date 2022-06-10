@@ -1,0 +1,21 @@
+$colors: (
+  black: #333333,
+  grey: (
+    500: #efefef,
+    700: #c7c7cd,
+  ),
+  white: #ffffff,
+  pink: #e6356f,
+);
+
+$space: 32px;
+
+$padding: 16px;
+
+$sectionPadding: 16px 32px;
+
+$border: 1px solid #{map-get($colors, pink)};
+
+$card: 1px solid #{map-get($colors, grey, 700)};
+
+$transition: 0.25s all ease-out;
