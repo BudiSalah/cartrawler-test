@@ -82,7 +82,11 @@ function CarCard() {
 
         <hr />
 
-        <TheButton type="primary" className={`${style.btn} items-self-end`} />
+        <TheButton
+          text="book now"
+          type="primary"
+          className={`${style.btn} items-self-end`}
+        />
       </div>
     </LayoutCard>
   );
