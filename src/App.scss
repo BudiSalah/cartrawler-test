@@ -1,8 +1,19 @@
+@import "./variables.scss";
+
 * {
   margin: 0;
   padding: 0;
   border: none;
   box-sizing: border-box;
+}
+
+figure {
+  overflow: hidden;
+}
+
+hr {
+  margin-top: $space-sm;
+  border-top: $card;
 }
 
 .container {
@@ -27,8 +38,20 @@
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .items-center {
   align-items: center;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.items-self-end {
+  align-self: end;
 }
 
 .capitalize {
