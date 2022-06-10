@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+[class*="title-"] {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.title-xl {
+  font-size: 3rem;
+  line-height: 4.063rem;
+}
+
+.title-l {
+  font-size: 2.625rem;
+  line-height: 3.563rem;
+}
+
+.title-m {
+  font-size: 2.25rem;
+  line-height: 3.063rem;
+}
+
+.title-s {
+  font-size: 2rem;
+  line-height: 2.688rem;
+}
+
+[class*="subtitle-"] {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.subtitle-xl {
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+}
+
+.subtitle-l {
+  font-size: 1.5rem;
+  line-height: 2.063rem;
+}
+
+.subtitle-m {
+  font-size: 1.25rem;
+  line-height: 2.688rem;
+}
+
+.subtitle-s {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+[class*="body-"] {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.body-l {
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+.body-m {
+  font-size: 0.875rem;
+  line-height: 1.188rem;
+}
+
+.body-s {
+  font-size: 0.75rem;
+  line-height: 1.063rem;
+}
