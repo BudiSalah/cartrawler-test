@@ -1,12 +1,10 @@
 import LayoutMain from "../../layouts/LayoutMain";
-import CarCard from "../../components/CarCard.js";
-import TheButton from "../../components/units/TheButton";
+import CarCard from "../../components/CarCard";
 
 function Home() {
   return (
     <LayoutMain>
       <CarCard></CarCard>
-      <TheButton type="primary" />
     </LayoutMain>
   );
 }
