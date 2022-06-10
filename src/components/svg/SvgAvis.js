@@ -4,10 +4,9 @@ function SvgAvis() {
       xmlns="http://www.w3.org/2000/svg"
       width="147"
       height="49"
-      viewBox="0 0 147 49"
+      viewBox="15 0 120 49"
     >
       <g fill="none" fillRule="evenodd">
-        <rect width="147" height="49" fill="#FFF" />
         <path
           fill="#D4002A"
           fillRule="nonzero"
