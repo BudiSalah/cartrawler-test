@@ -8,13 +8,17 @@ $colors: (
   pink: #e6356f,
 );
 
+$space-xs: 8px;
+
+$space-sm: 16px;
+
 $space: 32px;
 
-$padding: 16px;
-
-$sectionPadding: 16px 32px;
+$sectionPadding: 32px;
 
 $border: 1px solid #{map-get($colors, pink)};
+
+$radius: 4px;
 
 $card: 1px solid #{map-get($colors, grey, 700)};
 

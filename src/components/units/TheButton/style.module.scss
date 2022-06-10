@@ -2,11 +2,10 @@
 
 .btn {
   min-width: 175px;
-  margin-top: $space;
   padding: 15px 0;
   font-weight: 600;
   line-height: 1;
-  border-radius: 4px;
+  border-radius: $radius;
   cursor: pointer;
   transition: $transition;
 
