@@ -1,0 +1,43 @@
+@import "./../../../variables.scss";
+
+.btn {
+  min-width: 180px;
+  margin-top: $space;
+  padding: 15px 0;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: $transition;
+
+  &--primary,
+  &--secondary {
+    border: $border;
+  }
+
+  &--primary {
+    color: map-get($colors, white);
+    background-color: map-get($colors, pink);
+
+    &:hover {
+      color: map-get($colors, pink);
+      background-color: map-get($colors, white);
+    }
+  }
+
+  &--secondary {
+    color: map-get($colors, pink);
+    background-color: map-get($colors, white);
+
+    &:hover {
+      color: map-get($colors, white);
+      background-color: map-get($colors, pink);
+    }
+  }
+
+  &--disabled {
+    color: map-get($colors, black);
+    background-color: map-get($colors, grey, 500);
+    cursor: not-allowed;
+  }
+}
