@@ -9,7 +9,9 @@ function TheButton(props) {
     props.type === "disabled" && style["btn--disabled"],
   ].join(" ");
 
-  return <button className={`${btnClasses} body-l capitalize`}>primary</button>;
+  return (
+    <button className={`${btnClasses} body-l capitalize`}>{props.text}</button>
+  );
 }
 
 export default TheButton;
