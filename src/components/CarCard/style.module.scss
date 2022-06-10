@@ -3,9 +3,13 @@
 $gap: $space-sm;
 
 .figure-car {
-  padding-left: $space;
-  padding-right: $space;
+  padding: $space-sm;
+  text-align: center;
   border-right: $card;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 $space;
+  }
 
   img {
     width: 100%;
@@ -55,6 +59,7 @@ $gap: $space-sm;
   &__item {
     flex: 0 0 calc(33.3% - #{$gap});
     width: calc(33.3% - #{$gap});
+    min-width: 170px;
     gap: 8px;
 
     svg {
@@ -66,4 +71,9 @@ $gap: $space-sm;
 
 .btn {
   margin-top: $space-sm;
+  align-self: center;
+
+  @media screen and (min-width: 450px) {
+    align-self: flex-end;
+  }
 }

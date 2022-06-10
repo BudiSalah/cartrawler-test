@@ -36,7 +36,9 @@ function CarCard() {
 
         <p className={`${style.price} subtitle-m`}>$400</p>
 
-        <div className={`${style.info} flex flex-row items-center`}>
+        <div
+          className={`${style.info} flex flex-row justify-between items-center`}
+        >
           <div
             className={`${style.info__item} flex flex-row items-center body-l`}
           >
@@ -82,11 +84,7 @@ function CarCard() {
 
         <hr />
 
-        <TheButton
-          text="book now"
-          type="primary"
-          className={`${style.btn} items-self-end`}
-        />
+        <TheButton text="book now" type="primary" className={`${style.btn}`} />
       </div>
     </LayoutCard>
   );
