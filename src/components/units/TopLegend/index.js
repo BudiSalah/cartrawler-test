@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import AppContext from "../../../store/AppContext";
 import style from "./style.module.scss";
 import SvgPlane from "../../svg/SvgPlane";
@@ -6,26 +6,22 @@ import SvgCalendar from "../../svg/SvgCalendar";
 import TheButton from "../TheButton";
 
 function TopLegend(props) {
-  const { vehRentalCore } = useContext(AppContext);
+  const { vehRentalCore, priceSort, setPriceSort } = useContext(AppContext);
   const pickData = new Date(vehRentalCore?.["@PickUpDateTime"]);
   const returnData = new Date(vehRentalCore?.["@ReturnDateTime"]);
   const pickDataIsValid = pickData instanceof Date && !isNaN(pickData);
   const returnDataIsValid = returnData instanceof Date && !isNaN(returnData);
   const [sortText, setSortText] = useState("Low - High");
 
+  useEffect(() => {
+    priceSort === "ascending"
+      ? setSortText("Low - High")
+      : setSortText("High - Low");
+  }, [priceSort]);
+
   function sortHandler({ target }) {
-    const active = target
-      .closest("[class*='dropdown__list']")
-      .querySelector(".active");
-
-    if (active) {
-      active.classList.remove("active");
-    }
-
-    target.classList.add("active");
-
+    setPriceSort(target?.id?.match(/\w+/)?.[0]);
     setSortText(target?.innerText);
-    props.setSort(target?.id?.match(/\w+/)?.[0]);
   }
 
   return (
@@ -77,10 +73,19 @@ function TopLegend(props) {
             className={`${style.dropdown__list} body-m capitalize`}
             onClick={sortHandler}
           >
-            <li id="ascending-btn" className={`active`}>
+            <li
+              id="ascending-btn"
+              className={`${priceSort === "ascending" && "active"}`}
+            >
               Low - High
             </li>
-            <li id="descending-btn">High - Low</li>
+
+            <li
+              id="descending-btn"
+              className={`${priceSort === "descending" && "active"}`}
+            >
+              High - Low
+            </li>
           </ul>
         </div>
       )}

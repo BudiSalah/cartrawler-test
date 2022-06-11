@@ -7,6 +7,7 @@ export const initial = {
   vehiclesDescending: [],
   error: false,
   loading: true,
+  priceSort: "ascending",
 };
 
 const AppContext = createContext(initial);

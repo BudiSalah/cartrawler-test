@@ -1,16 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AppContext from "../../store/AppContext";
 import LayoutMain from "../../layouts/LayoutMain";
 import CarCard from "../../components/CarCard";
 import TopLegend from "../../components/units/TopLegend";
 
 function Home() {
-  const { vehiclesAscending, vehiclesDescending } = useContext(AppContext);
-
-  const [sort, setSort] = useState("ascending");
+  const { vehiclesAscending, vehiclesDescending, priceSort } =
+    useContext(AppContext);
 
   const FinalList = (
-    sort === "ascending" ? vehiclesAscending : vehiclesDescending
+    priceSort === "ascending" ? vehiclesAscending : vehiclesDescending
   )?.map((item, index) => {
     return (
       <CarCard
@@ -24,7 +23,7 @@ function Home() {
 
   return (
     <LayoutMain>
-      <TopLegend setSort={setSort} showDropdown={true} />
+      <TopLegend showDropdown={true} />
       {FinalList}
     </LayoutMain>
   );

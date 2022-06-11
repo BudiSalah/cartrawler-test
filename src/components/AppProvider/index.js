@@ -8,6 +8,7 @@ function AppProvider(props) {
   const [vehVendorAvails, setVehVendorAvails] = useState(
     initial.vehVendorAvails
   );
+  const [priceSort, setPriceSort] = useState(initial.priceSort);
 
   useEffect(() => {
     setLoading(true);
@@ -86,6 +87,8 @@ function AppProvider(props) {
         vehiclesDescending,
         error,
         loading,
+        priceSort,
+        setPriceSort,
       }}
     >
       {props.children}
