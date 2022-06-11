@@ -89,8 +89,13 @@ hr {
 }
 
 .subtitle-xl {
-  font-size: 1.75rem;
-  line-height: 2.375rem;
+  font-size: 1.325rem;
+  line-height: 1.5rem;
+
+  @media screen and (min-width: 450px) {
+    font-size: 1.75rem;
+    line-height: 2.375rem;
+  }
 }
 
 .subtitle-l {
@@ -126,4 +131,8 @@ hr {
 .body-s {
   font-size: 0.75rem;
   line-height: 1.063rem;
+}
+
+.font-semi-bold {
+  font-weight: 600;
 }
