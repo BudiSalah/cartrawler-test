@@ -3,6 +3,19 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API,
+  authDomain: "cartrawler-test.firebaseapp.com",
+  projectId: "cartrawler-test",
+  storageBucket: "cartrawler-test.appspot.com",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
+
+initializeApp(firebaseConfig);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
