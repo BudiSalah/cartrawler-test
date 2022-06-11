@@ -2,15 +2,20 @@ import { useContext } from "react";
 import AppContext from "../../store/AppContext";
 import LayoutMain from "../../layouts/LayoutMain";
 import CarCard from "../../components/CarCard";
+import PickReturn from "../../components/units/PickReturn";
 
 function Home() {
-  const { nameHandler, name } = useContext(AppContext);
+  const { vehVendorAvails } = useContext(AppContext);
+  const FinalList = vehVendorAvails?.map((item) => {
+    return item.VehAvails.map((data, index) => {
+      return <CarCard key={index} vehicleData={data} vendor={item?.Vendor} />;
+    });
+  });
 
   return (
     <LayoutMain>
-      <CarCard />
-
-      <h1 onClick={nameHandler}>{name}</h1>
+      <PickReturn />
+      {FinalList}
     </LayoutMain>
   );
 }
