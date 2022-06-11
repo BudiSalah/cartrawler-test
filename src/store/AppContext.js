@@ -3,8 +3,8 @@ import { createContext } from "react";
 export const initial = {
   vehRentalCore: {},
   vehVendorAvails: [],
-  vehRentalCoreHandler: () => {},
-  vehVendorAvailsHandler: () => {},
+  vehiclesAscending: [],
+  vehiclesDescending: [],
 };
 
 const AppContext = createContext(initial);

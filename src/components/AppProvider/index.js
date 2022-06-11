@@ -7,9 +7,6 @@ function AppProvider(props) {
     initial.vehVendorAvails
   );
 
-  const vehRentalCoreHandler = () => {};
-  const vehVendorAvailsHandler = () => {};
-
   useEffect(() => {
     fetch(`/ctabe/cars.json`)
       .then((response) => response.json())
@@ -20,13 +17,62 @@ function AppProvider(props) {
       });
   }, []);
 
+  let all = vehVendorAvails;
+
+  all = all.map((item) => {
+    return item.VehAvails.map((car) => {
+      return { ...car, vendor: item.Vendor };
+    });
+  });
+
+  all = all.flat();
+
+  function ascendingHandler(a, b) {
+    if (
+      Number(a?.TotalCharge["@RateTotalAmount"]) <
+      Number(b?.TotalCharge["@RateTotalAmount"])
+    ) {
+      return -1;
+    }
+
+    if (
+      Number(a?.TotalCharge["@RateTotalAmount"]) >
+      Number(b?.TotalCharge["@RateTotalAmount"])
+    ) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  function descendingHandler(a, b) {
+    if (
+      Number(a?.TotalCharge["@RateTotalAmount"]) >
+      Number(b?.TotalCharge["@RateTotalAmount"])
+    ) {
+      return -1;
+    }
+
+    if (
+      Number(a?.TotalCharge["@RateTotalAmount"]) <
+      Number(b?.TotalCharge["@RateTotalAmount"])
+    ) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+  const vehiclesAscending = all.sort(ascendingHandler);
+  const vehiclesDescending = [...all].sort(descendingHandler);
+
   return (
     <AppContext.Provider
       value={{
         vehRentalCore,
         vehVendorAvails,
-        vehRentalCoreHandler,
-        vehVendorAvailsHandler,
+        vehiclesAscending,
+        vehiclesDescending,
       }}
     >
       {props.children}

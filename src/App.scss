@@ -136,3 +136,8 @@ hr {
 .font-semi-bold {
   font-weight: 600;
 }
+
+.active {
+  color: map-get($colors, white);
+  background-color: map-get($colors, pink);
+}

@@ -1,20 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../../store/AppContext";
 import LayoutMain from "../../layouts/LayoutMain";
 import CarCard from "../../components/CarCard";
-import PickReturn from "../../components/units/PickReturn";
+import TopLegend from "../../components/units/TopLegend";
 
 function Home() {
-  const { vehVendorAvails } = useContext(AppContext);
-  const FinalList = vehVendorAvails?.map((item) => {
-    return item.VehAvails.map((data, index) => {
-      return <CarCard key={index} vehicleData={data} vendor={item?.Vendor} />;
-    });
+  const { vehiclesAscending, vehiclesDescending } = useContext(AppContext);
+
+  const [sort, setSort] = useState("ascending");
+
+  const FinalList = (
+    sort === "ascending" ? vehiclesAscending : vehiclesDescending
+  )?.map((item, index) => {
+    return <CarCard key={index} vehicleData={item} vendor={item?.vendor} />;
   });
 
   return (
     <LayoutMain>
-      <PickReturn />
+      <TopLegend setSort={setSort} />
       {FinalList}
     </LayoutMain>
   );
