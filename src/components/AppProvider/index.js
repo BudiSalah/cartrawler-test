@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AppContext, { initial } from "./../../store/AppContext";
+import data from "./cars.json";
 
 function AppProvider(props) {
   const [loading, setLoading] = useState(true);
@@ -11,21 +12,10 @@ function AppProvider(props) {
   const [priceSort, setPriceSort] = useState(initial.priceSort);
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-
-    try {
-      fetch(`/ctabe/cars.json`)
-        .then((response) => response.json())
-        .then((data) => {
-          const { VehRentalCore, VehVendorAvails } = data?.[0]?.VehAvailRSCore;
-          setVehRentalCore(VehRentalCore);
-          setVehVendorAvails(VehVendorAvails);
-          setLoading(false);
-        });
-    } catch (e) {
-      setError(true);
-    }
+    const { VehRentalCore, VehVendorAvails } = data?.[0]?.VehAvailRSCore;
+    setVehRentalCore(VehRentalCore);
+    setVehVendorAvails(VehVendorAvails);
+    setLoading(false);
   }, []);
 
   let all = vehVendorAvails;
@@ -86,6 +76,7 @@ function AppProvider(props) {
         vehiclesAscending,
         vehiclesDescending,
         error,
+        setError,
         loading,
         priceSort,
         setPriceSort,
