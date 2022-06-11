@@ -16,7 +16,7 @@ function Single() {
         vehiclesAscending.filter((item) => item.id === Number(id))?.[0]
       );
     }
-  }, [vehiclesAscending]);
+  }, [id, vehiclesAscending]);
 
   useEffect(() => {
     if (target === undefined || target === null) {
