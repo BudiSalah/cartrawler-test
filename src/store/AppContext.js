@@ -5,6 +5,8 @@ export const initial = {
   vehVendorAvails: [],
   vehiclesAscending: [],
   vehiclesDescending: [],
+  error: false,
+  loading: true,
 };
 
 const AppContext = createContext(initial);

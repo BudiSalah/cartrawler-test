@@ -2,26 +2,37 @@ import { useState, useEffect } from "react";
 import AppContext, { initial } from "./../../store/AppContext";
 
 function AppProvider(props) {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [vehRentalCore, setVehRentalCore] = useState(initial.vehRentalCore);
   const [vehVendorAvails, setVehVendorAvails] = useState(
     initial.vehVendorAvails
   );
 
   useEffect(() => {
-    fetch(`/ctabe/cars.json`)
-      .then((response) => response.json())
-      .then((data) => {
-        const { VehRentalCore, VehVendorAvails } = data?.[0]?.VehAvailRSCore;
-        setVehRentalCore(VehRentalCore);
-        setVehVendorAvails(VehVendorAvails);
-      });
+    setLoading(true);
+    setError(false);
+
+    try {
+      fetch(`/ctabe/cars.json`)
+        .then((response) => response.json())
+        .then((data) => {
+          const { VehRentalCore, VehVendorAvails } = data?.[0]?.VehAvailRSCore;
+          setVehRentalCore(VehRentalCore);
+          setVehVendorAvails(VehVendorAvails);
+          setLoading(false);
+        });
+    } catch (e) {
+      setError(true);
+    }
   }, []);
 
   let all = vehVendorAvails;
+  let index = 0;
 
   all = all.map((item) => {
     return item.VehAvails.map((car) => {
-      return { ...car, vendor: item.Vendor };
+      return { id: (index += 1), ...car, vendor: item.Vendor };
     });
   });
 
@@ -73,6 +84,8 @@ function AppProvider(props) {
         vehVendorAvails,
         vehiclesAscending,
         vehiclesDescending,
+        error,
+        loading,
       }}
     >
       {props.children}
