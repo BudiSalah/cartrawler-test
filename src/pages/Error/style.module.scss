@@ -1,0 +1,17 @@
+@import "./../../variables.scss";
+
+.figure {
+  overflow: hidden;
+  height: calc(100vh - (32px * 2));
+
+  img {
+    width: 90%;
+    max-width: 800px;
+    height: 100%;
+    margin: auto;
+  }
+}
+
+.btn {
+  align-self: center;
+}

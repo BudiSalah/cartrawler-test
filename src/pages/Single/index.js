@@ -1,12 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import AppContext from "../../store/AppContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import LayoutMain from "../../layouts/LayoutMain";
 import CarCard from "../../components/CarCard";
 import TopLegend from "../../components/units/TopLegend";
 
 function Single() {
   const { id } = useParams();
+  const navigation = useNavigate();
   const { vehiclesAscending } = useContext(AppContext);
   const [target, setTarget] = useState("");
 
@@ -20,10 +21,9 @@ function Single() {
 
   useEffect(() => {
     if (target === undefined || target === null) {
-      // TODO - REDIRECT TO 404
-      console.error("not fount");
+      navigation("/404");
     }
-  }, [target]);
+  }, [target, navigation]);
 
   return (
     <>
