@@ -1,8 +1,10 @@
 import { createContext } from "react";
 
 export const initial = {
-  name: "budi",
-  nameHandler: () => {},
+  vehRentalCore: {},
+  vehVendorAvails: [],
+  vehRentalCoreHandler: () => {},
+  vehVendorAvailsHandler: () => {},
 };
 
 const AppContext = createContext(initial);
