@@ -40,10 +40,6 @@ $gap: $space-sm;
 .car-meta {
   margin-top: $space-xs;
   gap: $gap;
-
-  > * {
-    line-height: 1;
-  }
 }
 
 .price {
@@ -59,7 +55,7 @@ $gap: $space-sm;
   &__item {
     flex: 0 0 calc(33.3% - #{$gap});
     width: calc(33.3% - #{$gap});
-    min-width: 170px;
+    min-width: 210px;
     gap: 8px;
 
     svg {
