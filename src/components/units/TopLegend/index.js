@@ -64,23 +64,26 @@ function TopLegend(props) {
         </div>
       </div>
 
-      <div className={style.dropdown}>
-        <TheButton
-          className={style.dropdown__btn}
-          text={`price: ${sortText}`}
-          type="secondary"
-        />
+      {props?.showDropdown && (
+        <div className={style.dropdown}>
+          <TheButton
+            type="secondary"
+            text={`price: ${sortText}`}
+            btnLink={`/`}
+            className={style.dropdown__btn}
+          />
 
-        <ul
-          className={`${style.dropdown__list} body-m capitalize`}
-          onClick={sortHandler}
-        >
-          <li id="ascending-btn" className={`active`}>
-            Low - High
-          </li>
-          <li id="descending-btn">High - Low</li>
-        </ul>
-      </div>
+          <ul
+            className={`${style.dropdown__list} body-m capitalize`}
+            onClick={sortHandler}
+          >
+            <li id="ascending-btn" className={`active`}>
+              Low - High
+            </li>
+            <li id="descending-btn">High - Low</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

@@ -12,12 +12,19 @@ function Home() {
   const FinalList = (
     sort === "ascending" ? vehiclesAscending : vehiclesDescending
   )?.map((item, index) => {
-    return <CarCard key={index} vehicleData={item} vendor={item?.vendor} />;
+    return (
+      <CarCard
+        key={index}
+        vehicleData={item}
+        vendor={item?.vendor}
+        btnLink={`/${item.id}`}
+      />
+    );
   });
 
   return (
     <LayoutMain>
-      <TopLegend setSort={setSort} />
+      <TopLegend setSort={setSort} showDropdown={true} />
       {FinalList}
     </LayoutMain>
   );

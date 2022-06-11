@@ -1,4 +1,5 @@
 import style from "./style.module.scss";
+import { Link } from "react-router-dom";
 
 function TheButton(props) {
   const btnClasses = [
@@ -10,7 +11,9 @@ function TheButton(props) {
   ].join(" ");
 
   return (
-    <button className={`${btnClasses} body-l capitalize`}>{props.text}</button>
+    <Link to={props?.btnLink} className={`${btnClasses} body-l capitalize`}>
+      {props.text}
+    </Link>
   );
 }
 

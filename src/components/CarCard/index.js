@@ -136,7 +136,14 @@ function CarCard(props) {
 
         <hr />
 
-        <TheButton text="book now" type="primary" className={`${style.btn}`} />
+        {props?.btnLink && (
+          <TheButton
+            type="primary"
+            text={props?.btnText || "details"}
+            btnLink={props?.btnLink}
+            className={`${style.btn}`}
+          />
+        )}
       </div>
     </LayoutCard>
   );

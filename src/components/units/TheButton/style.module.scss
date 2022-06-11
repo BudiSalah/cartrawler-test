@@ -1,9 +1,12 @@
 @import "./../../../variables.scss";
 
 .btn {
+  display: inline-block;
   min-width: 175px;
   padding: 15px 0;
   font-weight: 600;
+  text-align: center;
+  text-decoration: none;
   line-height: 1;
   border-radius: $radius;
   cursor: pointer;
