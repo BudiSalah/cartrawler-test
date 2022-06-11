@@ -1,0 +1,29 @@
+@import "./../../../variables.scss";
+
+$pickReturnGap: 8px;
+
+.pick-return {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-sm;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  > div {
+    gap: $pickReturnGap;
+  }
+
+  svg {
+    width: 20px;
+    height: auto;
+  }
+
+  &__text {
+    span {
+      margin-left: 4px;
+    }
+  }
+}
